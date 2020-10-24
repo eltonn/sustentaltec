@@ -1,0 +1,17 @@
+name: tec
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+- pip
+- django-bootstrap4
+- django>=3.0.0
+# development
+- black
+- docker-compose
+- flake8
+- mypy
+- pip
+- pre-commit
+- pip:
+  -  django-extensions
