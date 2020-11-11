@@ -28,17 +28,19 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# AUTH_USER_MODEL = 'User'
+AUTH_USER_MODEL = 'sustentaltec.User'
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
+    'sustentaltec.apps.AdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sustentaltec',
 ]
 
 # if DEBUG:

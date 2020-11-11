@@ -1,22 +1,21 @@
-from django.contrib.auth.models import UserManager as BaseUserManager
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+
+from sustentaltec.forms import UserChangeForm, UserCreationForm
+from sustentaltec.models import Organization, User
+from sustentaltec.admin_config import admin_site
+
+class UserAdmin(BaseUserAdmin):
+    form = UserChangeForm
+    add_form = UserCreationForm
+
+    class Meta:
+        model = User
 
 
-class UserManager(BaseUserManager):
-    def create_superuser(self, username, email, password=None):
-        """
-        Creates and saves a superuser with the given email, date of
-        birth and password.
-        """
-        from djangopoc.users.models import Organization
+class OrganizationAdmin(admin.ModelAdmin):
+    ...
 
-        organization = Organization.objects.get(pk=1)
-        user = self.create_user(
-            username=username,
-            email=email,
-            password=password,
-            organization=organization,
-            is_staff=True,
-            is_superuser=True,
-        )
-        user.save(using=self._db)
-        return user
+
+admin_site.register(User, UserAdmin)
+admin_site.register(Organization, OrganizationAdmin)
