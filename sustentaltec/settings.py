@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sustentaltec',
 ]
-
-# if DEBUG:
+DEBUG = True
+ # if DEBUG:
     # INSTALLED_APPS.append('django_extensions')
 
 MIDDLEWARE = [
